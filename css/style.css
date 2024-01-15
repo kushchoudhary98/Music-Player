@@ -22,6 +22,7 @@ body {
 .left {
     width: 25vw;
     padding: 10px;
+    min-width: 250px;
 }
 
 .right {
@@ -160,8 +161,8 @@ body {
 }
 
 .signupbtn:hover {
-    font-size: 17px;
-    color: white
+    transform: scale(1.1);
+    color: whitesmoke;
 }
 
 .loginbtn {
@@ -172,11 +173,11 @@ body {
     width: 79px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: bold;
 }
 
 .loginbtn:hover {
-    font-weight: bold;
-    font-size: 17px;
+    transform: scale(1.1);
 }
 
 
@@ -207,6 +208,10 @@ body {
     margin-bottom: 44px;
 }
 
+.songList-name{
+    font-size: medium;
+}
+
 .hamburger {
     display: none;
     cursor: pointer;
@@ -234,11 +239,15 @@ body {
     margin: 12px 0;
     padding: 13px;
     border-radius: 5px;
+    max-width: 300px;
+    min-width: 150px;
 }
 
 .songList .info {
     font-size: 13px;
     width: 344px;
+    display: flex;
+    align-items: center;
 }
 
 .info div {
@@ -321,7 +330,7 @@ body {
     width: 100%;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 815px) {
     .left {
         position: absolute;
         left: -130%;
