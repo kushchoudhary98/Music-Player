@@ -86,6 +86,7 @@ async function getSongsList(folder) {
 }
 
 async function displayAlbums() {
+    console.log("h");
     let a = await fetch(`/songs/`)
     let response = await a.text();
     let div = document.createElement("div")
@@ -96,10 +97,11 @@ async function displayAlbums() {
     let folder
     for (let index = 0; index < array.length; index++) {
         const e = array[index]; 
-        if (e.href.includes("/songs/") && (await getSongsList(e.href)).length != 0) {
+        console.log(index);
+        if (e.href.includes("/songs/") && !e.href.includes(".htaccess")) {
             
             folder = e.href.split("/").slice(-1)[0]
-           
+            console.log(folder)
             let a = await fetch(`/songs/${folder}/info.json`)
             let response = await a.json(); 
             cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
@@ -122,6 +124,8 @@ async function displayAlbums() {
     Array.from(document.getElementsByClassName("card")).forEach(e => { 
         e.addEventListener("click", async item => {
             songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`) 
+            document.getElementsByClassName("hamburger")[0].click();
+            
         })
     })
 }
